@@ -32,7 +32,9 @@ function renderComponent(component) {
 function render(location) {
   router.resolve(routes, location)
     .then(renderComponent)
-    .catch(error => router.resolve(routes, { ...location, error }).then(renderComponent));
+    .catch(error => {
+      console.log(error);
+      return router.resolve(routes, { ...location, error }).then(renderComponent)});
 }
 
 // Handle client-side navigation by using HTML5 History API

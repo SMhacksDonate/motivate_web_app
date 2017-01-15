@@ -1,0 +1,134 @@
+.modal {
+  position: fixed;
+  top:0;left:0;right:0;bottom:0;
+  transition: opacity 400ms cubic-bezier(0.2,1,0.3,1);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal--close {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.modal--open {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.content__description {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+.modal__background {
+  position: absolute;
+  top:0;left:0;right:0;bottom:0;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal__content {
+  overflow: hidden;
+  z-index: 2001;
+  width: 80%;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.success__header {
+  color:white;
+  padding: 2rem 4rem;
+  background-color: #2ecc71
+}
+
+.header__title {
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+
+.content {
+  padding: 1rem 4rem;
+}
+
+.wallet__wrapper {
+  position: relative;
+}
+
+.content__description {
+  letter-spacing: normal;
+  padding: 1rem 0;
+}
+
+.wallet {
+  position: relative;
+  padding: 2rem 0;
+  height: 15rem;
+  width: 25rem;
+  background-color: #5A4042;
+  border-radius: 2rem;
+  z-index: 2003;
+}
+
+.wallet__money {
+  cursor: pointer;
+  margin: auto 0;
+  z-index: 2002;
+  height: 13rem;
+  width: 25rem;
+  border-radius: 1rem;
+  position: absolute;
+  top:0;bottom:0;left:0;right:0;
+  background-color: #2ecc71;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8rem;
+  transform: translateX(40%);
+  color:white;
+  animation-name: swipe;
+  animation-duration: 1000ms;
+  transition: all 400ms cubic-bezier(0.2,1,0.3,1);
+  animation-timing-function: cubic-bezier(0.2,1,0.3,1);
+}
+
+.wallet__money:hover {
+  transform: translateX(110%);
+}
+
+.modal__button button {
+  float: right;
+}
+
+.error__header {
+  color:white;
+  padding: 2rem 4rem;
+  background-color: #FF5656;
+}
+
+.card__header {
+  color:white;
+  padding: 2rem 4rem;
+  background-color: #415F9D;
+}
+
+.card {
+  color:white;
+  background-color: #7986C7;
+}
+
+@keyframes swipe {
+  0% {
+    transform: translateX(110%);
+  }
+  40% {
+    transform: translateX(110%);
+  }
+  100% {
+    transform: translateX(40%);
+  }
+}
+
+.content__half {
+  width: 50%;
+}

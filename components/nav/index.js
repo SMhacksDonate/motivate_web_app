@@ -18,7 +18,7 @@ class Nav extends React.Component {
   }
 
   render() {
-    const {active} = this.props;
+    const {active,onClick} = this.props;
     return (
       <div className={`${s["nav"]}`}>
         <div className={`${s["nav__wrapper"]}`}>
@@ -30,7 +30,7 @@ class Nav extends React.Component {
             <ul className={`${s["nav__links"]}`}>
               <li className={`${s["nav__link"]} ${ifActive("index",active)}`}><a>Dashboard</a></li>
               <li className={`${s["nav__link"]} ${ifActive("profile",active)}`}><a>Me</a></li>
-              <li className={`${s["nav__link"]} ${ifActive("settings",active)}`}><a>Settings</a></li>
+              <li onClick={()=>{onClick("settings")}} className={`${s["nav__link"]} ${ifActive("settings",active)}`}><a>Settings</a></li>
             </ul>
           </div>
         </div>
