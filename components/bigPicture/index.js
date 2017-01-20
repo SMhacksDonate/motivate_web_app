@@ -21,21 +21,20 @@ class BigPicture extends React.Component {
   }
 
   render() {
-    const {name} = this.props;
+    const {stats} = this.props;
     return (
       <div className={`${s["stats"]}`}>
         <div className={`${s["stats__half-background"]}`}>
         </div>
-
         <div className={`${s["stats__content"]}`}>
           <div className={`${s["stats__numbers"]}`}>
-            <Stat title="Goals" subtext="cool stuff" number="4/5" />
+            <Stat title="Goals" subtext="Deliver and save." number={`${stats.goalsCompleted}/${stats.totalGoals}`} />
             <div className={`${s["stat__line"]}`}></div>
-            <Stat title="Money on the line" subtext="Gotta deliver" number="$420" />
+            <Stat title="Money on the line" subtext="Gotta deliver" number={`$${stats.moneyOnLine}`} />
             <div className={`${s["stat__line"]}`}></div>
-            <Stat title="Next Deadline" subtext="days" number="8" />
+            <Stat title="Money donated" subtext="its for a good cause" number={`$${stats.moneyDonated}`} />
             <div className={`${s["stat__line"]}`}></div>
-            <Stat title="Completed" subtext="in total" number="3" />
+            <Stat title="Money saved" subtext="Win-win" number={`$${stats.moneySecured}`} />
           </div>
         </div>
       </div>
@@ -45,6 +44,6 @@ class BigPicture extends React.Component {
 }
 
 BigPicture.defaultProps = {
-  name: "David Sun"
 }
+
 export default BigPicture;

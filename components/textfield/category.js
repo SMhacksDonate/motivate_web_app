@@ -20,7 +20,7 @@ class CatSelect extends React.Component {
         <p className={`${s["text-input__label"]}`}>{label}</p>
         <div className={`${s["text-categories"]}`}>
           {cats.map((c,i)=>{
-            return <div style={style} onClick={()=>{onChange(c)}} className={`${s["text-category"]} ${s["text-category--" + (i==selected ? "select":"normal")]}`} key={i}>
+            return <div style={style} onClick={()=>{onChange(i)}} className={`${s["text-category"]} ${s["text-category--" + (i==selected ? "select":"normal")]}`} key={i}>
               {c}
             </div>
           })}

@@ -7,6 +7,7 @@ import {
   UPDATE_MONEY,
   UPDATE_COUNTDOWN
 } from '../constants'
+
 export function getGoals() {
   return function(dispatch, getState) {
     dispatch(requestGoals());
@@ -14,7 +15,6 @@ export function getGoals() {
     fetch(`${BASE_SERVER_URL}/goals?username=${user.username}`)
       .then(response => response.json())
       .then((json)=>{
-        console.log(json);
         dispatch(receiveGoals(json));
         dispatch(updateCountdowns());
       });
@@ -64,9 +64,17 @@ export function completeGoal(goalId) {
       })
   }
 }
-export function updateCountdowns() {
+
+const d = (goals) => {
   return {
-    type: UPDATE_COUNTDOWN
+    type: UPDATE_COUNTDOWN,
+    status: 'received',
+    goals
+  }
+}
+export function updateCountdowns(goals) {
+  return (dispatch,getState) => {
+    dispatch(d(getState().goals.goals))
   }
 }
 const receiveGoals = (goals) => {

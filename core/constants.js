@@ -1,4 +1,4 @@
-export const BASE_SERVER_URL = 'http://localhost:3000'
+export const BASE_SERVER_URL = 'https://frozen-coast-71212.herokuapp.com'
 
 export const NETWORK_STATUS = {
   SUCCESS:"SUCCESS",

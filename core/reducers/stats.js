@@ -1,7 +1,8 @@
 import {
   GET_GOALS,
   ADD_GOAL,
-  UPDATE_MONEY
+  UPDATE_MONEY,
+  UPDATE_COUNTDOWN
 } from "../constants"
 /*
   goals: [{
@@ -14,6 +15,7 @@ import {
 const defaultState = { moneyOnLine: 0, moneyDonated: 0, moneySecured: 0, goalsCompleted: 0, totalGoals: 0, goalsFailed: 0 };
 export default function(state=defaultState, action) {
   switch(action.type) {
+    case UPDATE_COUNTDOWN:
     case GET_GOALS:
       if(action.status == 'received') {
         console.log(JSON.stringify(action.goals, null, 2))

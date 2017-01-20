@@ -17,6 +17,11 @@
   background-color: white;
 }
 
+.goal--due {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
 .goal__title {
   padding: 1rem 0;
 }

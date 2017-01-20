@@ -9,9 +9,11 @@ class Card extends React.Component {
   constructor(props) {
     super(props);
     this.state =  {
-      card:"",
-      date:"",
-      cvs:""
+      card:"5105 1051 0510 5100",
+      date:"03/19",
+      cvs:"548",
+      name:"Avik Jain",
+      doner:"Anonymous"
     }
     const {} = props;
   }
@@ -21,6 +23,7 @@ class Card extends React.Component {
 
   render() {
     const {onStatus,status} = this.props;
+    const {card,date,cvs,name,doner} = this.state;
     return (<Modal status={status} onStatus={(s)=>{onStatus(s)}}>
         <div className={`${s["card"]}`}>
           <div className={`${s["card__header"]}`}>
@@ -31,14 +34,14 @@ class Card extends React.Component {
             <div style={{display:"flex"}}>
               <div className={`${s["content__half"]}`}>
                 <p className={`${s["content__description"]}`}>Credit Card</p>
-                <Textfield placeholder="0000 0000 0000" value={""} label="Card Number" onChange={(v)=>{this.setState({card:v})}} />
-                <Textfield placeholder="XX/XX" value={""} label="Expiration Date" onChange={(v)=>{this.setState({date:v})}} />
-                <Textfield type="password" placeholder="000" value={""} label="CVS (?)" onChange={(v)=>{this.setState({date:v})}} />
+                <Textfield placeholder="0000 0000 0000" value={card} label="Card Number" onChange={(v)=>{this.setState({card:v})}} />
+                <Textfield placeholder="XX/XX" value={date} label="Expiration Date" onChange={(v)=>{this.setState({date:v})}} />
+                <Textfield type="password" placeholder="000" value={cvs} label="CVS (?)" onChange={(v)=>{this.setState({cvs:v})}} />
               </div>
               <div className={`${s["content__half"]}`}>
                 <p className={`${s["content__description"]}`}>User</p>
-                <Textfield placeholder="Johny Appleseed" value={""} label="Your Name" onChange={(v)=>{this.setState({card:v})}} />
-                <Textfield placeholder="Mr. Johny Appleseed" value={""} label="Donate under name" onChange={(v)=>{this.setState({card:v})}} />
+                <Textfield placeholder="Johny Appleseed" value={name} label="Your Name" onChange={(v)=>{this.setState({name:v})}} />
+                <Textfield placeholder="Mr. Johny Appleseed" value={doner} label="Donate under name" onChange={(v)=>{this.setState({doner:v})}} />
               </div>
             </div>
             <div className={`${s["success__button"]}`}>

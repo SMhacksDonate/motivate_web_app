@@ -7,9 +7,6 @@ class Success extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state =  {
-      status:true
-    }
     const {} = props;
   }
 
@@ -17,26 +14,25 @@ class Success extends React.Component {
   }
 
   render() {
-    const {onStatus} = this.props;
-    const {status} = this.state;
-    console.log(status)
-    return (<Modal status={status} onStatus={(s)=>{this.setState({status:s})}}>
+    const {onStatus,status,goal} = this.props;
+    console.log(status);
+    return (<Modal status={status} onStatus={(s)=>{onStatus(s)}}>
         <div className={`${s["success"]}`}>
           <div className={`${s["success__header"]}`}>
-            <h1 className={`${s["header__title"]}`}>Congraguf**kinglations</h1>
-            <h4 className={`${s["header__subtitle"]}`}>You did something in your life!</h4>
+            <h1 className={`${s["header__title"]}`}>Congratulations</h1>
+            <h4 className={`${s["header__subtitle"]}`}>You finished {goal.name}.</h4>
           </div>
           <div className={`${s["content"]}`}>
             <p className={`${s["content__description"]}`}>You saved yourself</p>
             <div className={`${s["wallet__wrapper"]}`}>
               <div className={`${s["wallet__money"]}`}>
-                $420
+                ${goal.money}
               </div>
               <div className={`${s["wallet"]}`}>
               </div>
             </div>
             <div className={`${s["success__button"]}`}>
-              <Button style={{backgroundColor:"#415F9D",color:"#FFF"}} onClick={()=>{this.setState({status:!status})}}>Get Back to Work</Button>
+              <Button style={{backgroundColor:"#415F9D",color:"#FFF"}} onClick={()=>{onStatus(!status)}}>Get Back to Work</Button>
             </div>
           </div>
         </div>

@@ -17,25 +17,25 @@ class Error extends React.Component {
   }
 
   render() {
-    const {onStatus} = this.props;
-    const {status} = this.state;
-    return (<Modal status={status} onStatus={(s)=>{this.setState({status:s})}}>
+    const {onStatus,status,goal} = this.props;
+    return (<Modal status={status} onStatus={(s)=>{onStatus(s)}}>
         <div className={`${s["error"]}`}>
           <div className={`${s["error__header"]}`}>
             <h1 className={`${s["header__title"]}`}>Well, your money goes to a great cause!</h1>
-            <h4 className={`${s["header__subtitle"]}`}>Don't feel too bad...</h4>
+            <h4 className={`${s["header__subtitle"]}`}>Don't feel too bad... {goal.name} aren't that important.</h4>
           </div>
           <div className={`${s["content"]}`}>
             <p className={`${s["content__description"]}`}>You donated</p>
             <div className={`${s["wallet__wrapper"]}`}>
               <div className={`${s["wallet__money"]}`}>
-                $420
+                ${goal.money}
               </div>
               <div className={`${s["wallet"]}`}>
               </div>
+              <p className={`${s["content__description"]}`}><a className={`${s["content__link"]}`}>Check the receipt</a> for Computers for Africa.</p>
             </div>
             <div className={`${s["modal__button"]}`}>
-              <Button style={{backgroundColor:"#415F9D",color:"#FFF"}} onClick={()=>{this.setState({status:!status})}}>Get Back to Work</Button>
+              <Button style={{backgroundColor:"#415F9D",color:"#FFF"}} onClick={()=>{onStatus(!status)}}>Get Back to Work</Button>
             </div>
           </div>
         </div>
